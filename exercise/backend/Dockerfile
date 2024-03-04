@@ -1,4 +1,3 @@
-# The current directory is docker-workshop/exercise/backend/Dockerfile
 FROM node:18-alpine
 WORKDIR /app
 RUN npm install
