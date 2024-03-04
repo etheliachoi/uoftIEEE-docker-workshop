@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - backend_vol:/app
+    ports:
+      - 8000:8000
+  frontend:
+    build: ./frontend
+    volumes:
+      - frontend_vol:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+volumes:
+  backend_vol:
+  frontend_vol:
+
+# There are two services in this app, backend and frontend. The compose.yaml serves as a configuration file to link both of these services of our app together.
+# build means where to find the corresponding Dockerfile.
+# We need a volume to record the calculations so we define it and tells it to map to /app which we defined in both Dockerfiles.
+# ports follows the format of host_port:container_port. Make sure to define a host port so we can see the app running locally.
